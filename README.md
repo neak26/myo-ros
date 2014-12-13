@@ -15,10 +15,13 @@ Following changes where made:
   - removed code for myo firmware < 1.0
   - removed pygame stuff to keep it compact
 
+### PreRequiremnts:
+- python >=2.6
+- pySerial
+- Requires that you initialized your Myo once using the Myo Connect tool.
+
 
 ### Installation: 
-
-Requires that you initialized your Myo once using the Myo Connect tool.
 
 For the bluetooth dongle add following to: /etc/udev/rules.d/90-bluegiga\_le.rules 
 
@@ -30,7 +33,7 @@ ATTRS{idVendor}=="2458", ATTRS{idProduct}=="0001", ENV{ID\_MM\_DEVICE\_IGNORE}="
 ### Usage: 
 
 start a roscore and 
-$ python myo\_ros.py
+- python myo\_ros.py
 
 wait till connected and perform the initialization gesture
 
@@ -40,6 +43,6 @@ provides:
 
 
 ### ToDo:
-
-  - take a look at Thalmic's calibration - maybe we can use calibrated raw data. 
-  - Check if Thalmic gestures work correct with all firmwares >1
+- take a look at Thalmic's calibration - maybe we can use calibrated raw data. 
+- Check if Thalmic gestures work correct with all firmwares >1
+- Handle multiple Myos
