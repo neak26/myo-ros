@@ -24,10 +24,9 @@ Following changes where made:
 ### Installation: 
 
 For the bluetooth dongle add following to: /etc/udev/rules.d/90-bluegiga\_le.rules 
-
-\# ATTR{product}=="BLED112"
-
-ATTRS{idVendor}=="2458", ATTRS{idProduct}=="0001", ENV{ID\_MM\_DEVICE\_IGNORE}="1", SYMLINK="bluegiga/bled112"
+ 
+   \# ATTR{product}=="BLED112"
+   ATTRS{idVendor}=="2458", ATTRS{idProduct}=="0001", ENV{ID\_MM\_DEVICE\_IGNORE}="1", SYMLINK="bluegiga/bled112"
 
 
 ### Usage: 
