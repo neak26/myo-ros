@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from __future__ import print_function
 
 '''Simple Myo ROS Module
@@ -301,7 +303,12 @@ class MyoRaw(object):
                 self.rn.pub_acceleration.publish(acc[0],acc[1],acc[2])
                 self.rn.pub_gyroscope.publish(gyro[0],gyro[1],gyro[2])
             elif attr == 0x23:
-                typ, val, xdir = unpack('3B', pay)
+		#typ, val, xdir = unpack('3B', pay)
+                
+		#update for new myo firmware, instead of 3B, 6B is used:
+                tmp = unpack('6B', pay)
+                typ, val, xdir = tmp[:3]
+
                 if DEBUG:
                   print("Typ:",typ) # 1: on arm , 2: removed, 3: recognized action: from 0 to 5 (255 unknown):   
                   print("Val:",val) # 2 LEFT, 1 RIGHT, 0 Unknown
