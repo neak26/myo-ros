@@ -308,7 +308,7 @@ class MyoRaw(object):
 		#update for new myo firmware, instead of 3B, 6B is used:
                 tmp = unpack('6B', pay)
                 typ, val, xdir = tmp[:3]
-
+                
                 if DEBUG:
                   print("Typ:",typ) # 1: on arm , 2: removed, 3: recognized action: from 0 to 5 (255 unknown):   
                   print("Val:",val) # 2 LEFT, 1 RIGHT, 0 Unknown
@@ -367,7 +367,9 @@ class MyoRaw(object):
 
 
 if __name__ == '__main__':
-  m = MyoRaw(sys.argv[1] if len(sys.argv) >= 2 else None)
+  #m = MyoRaw(sys.argv[1] if len(sys.argv) >= 2 else None)
+  ''' Changed so that node works with launch file'''
+  m = MyoRaw(None)
   m.connect()
   try:
     while not rospy.is_shutdown():
